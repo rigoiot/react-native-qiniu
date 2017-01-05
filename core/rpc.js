@@ -2,6 +2,7 @@
  * Created by buhe on 16/4/12.
  */
 import conf from './conf.js';
+import 'whatwg-fetch'
 
 /**
  * 直传文件
