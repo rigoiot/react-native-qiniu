@@ -10,7 +10,7 @@ import 'whatwg-fetch'
  */
 function uploadFile(uri, token, formInput, onprogress) {
   return new Promise((resolve, reject)=> {
-    if (typeof uri != 'string' || uri == '' || typeof formInput.key == 'undefined') {
+    if (typeof uri != 'string' || uri == '') {
       reject && reject(null);
       return;
     }
@@ -29,7 +29,7 @@ function uploadFile(uri, token, formInput, onprogress) {
     };
 
     var formdata = new FormData();
-    formdata.append("key", formInput.key);
+    if (typeof formInput.key !== 'undefined') formdata.append("key", formInput.key);
     formdata.append("token", token);
     if (typeof formInput.type == 'undefined')
       formInput.type = 'application/octet-stream';
